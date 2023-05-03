@@ -18,23 +18,23 @@ services:
     volumes:
       - ./api:/app
   mongo:
-    image: mongo
+    image: mongo #added official instruction that we took from docker hub
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: very-strong-db-password
+      MONGO_INITDB_ROOT_USERNAME: root #created credital in case access to the database
+      MONGO_INITDB_ROOT_PASSWORD: very-strong-db-password #created credital in case access to the database
     volumes:
       - mongodb_data:/data/db #mapping of mongo_db instruction added before(dont use ./ before mongodb_data here, 
       # otherwise docker will start to look for mongodb_data inside images-gallery folder(name:path(all data stors in this path /data/db))
   mongo-express:
-    image: mongo-express
+    image: mongo-express #added official instruction that we took from docker hub
     restart: always
     ports:     #Mongo-express will use external port on my computer in case to see it's GUI
       - 8081:8081
     environment:
       ME_CONFIG_MONGODB_SERVER: mongo  #with this command mongo-express will connect to mongo
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: very-strong-db-password
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root #created credital in case access to the database
+      ME_CONFIG_MONGODB_ADMINPASSWORD: very-strong-db-password #created credital in case access to the database
     depends_on:
       - mongo   #Means that Mongo-express container will start after 'mongo' container
 
