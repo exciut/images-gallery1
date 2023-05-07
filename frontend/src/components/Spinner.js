@@ -8,7 +8,7 @@ const spinnerStyle = {
 };
 
 const Spinner = () => (
-  <Loader style={spinnerStyle} animation="grow" variant="black" />
+  <Loader style={spinnerStyle} animation="border" variant="black" />
 );
 
 export default Spinner;
